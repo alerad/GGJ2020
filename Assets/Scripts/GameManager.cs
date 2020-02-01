@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager> {
@@ -9,16 +10,17 @@ public class GameManager : Singleton<GameManager> {
     private int patientsSucceed;
     private int patientsFailed;
     private int difficultyInt =>
-        Mathf.RoundToInt((patientsSucceed + patientsFailed) / patientsForDifficultyChange) / 4;
+        Mathf.RoundToInt((patientsSucceed + patientsFailed) / patientsForDifficultyChange);
     
-    private PatientDifficulty currentDifficulty =>
+    public Difficulty currentDifficulty =>
        difficultyInt
-        > (int) PatientDifficulty.Hard
-            ? PatientDifficulty.Hard
-            : (PatientDifficulty) difficultyInt;
+        > (int) Difficulty.Hard
+            ? Difficulty.Hard
+            : (Difficulty) difficultyInt;
 
     private void Start() {
-        PatientSpawner.Instance.SpawnPatient();
+        PatientSpawner.Instance.SpawnFirstPatient();
+        Observable.EveryUpdate().Where(x => Input.GetKeyDown(KeyCode.A)).Subscribe(x => OnPatientFail());
     }
 
     //Todo Validacion de que no se llame 2 veces muy rapido
@@ -32,13 +34,12 @@ public class GameManager : Singleton<GameManager> {
         PatientSpawner.Instance.SpawnAndDelete();
     }
 
-    public enum PatientDifficulty {
+    public enum Difficulty {
         Easy,
         Normal,
         Medium,
         Hard
     }
-    
     
     
 }

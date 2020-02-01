@@ -6,28 +6,47 @@ using UnityEngine;
 public class PatientSpawner : Singleton<PatientSpawner>
 {
     [SerializeField]
-    private GameObject patient;
-    private GameObject lastpatient;
+    private Patient patient;
+    private Patient currPatient;
     public Transform patientspawnpoint;
     
-   void Update() {
-       if (Input.GetKeyDown(KeyCode.A))
-            DeletePatient();
-   }
-
    public void SpawnAndDelete() {
        DeletePatient();
        SpawnPatient();
    }
    
-    public void SpawnPatient(){
-        if (lastpatient != null)
-            lastpatient = Instantiate(patient);
-        lastpatient.transform.position = patientspawnpoint.position;
+   public void SpawnFirstPatient() {
+       var p = SpawnPatient();
+       p.patienceTime = Mathf.Infinity;
+   }
+
+   
+    public Patient SpawnPatient() {
+        currPatient = Instantiate(patient);
+        currPatient.transform.position = patientspawnpoint.position;
+        SetPatientData(currPatient);
+        return currPatient;
+    }
+    
+    public void DeletePatient(){
+        Destroy(currPatient.gameObject);
     }
 
-    public void DeletePatient(){
-        Destroy(lastpatient);
-        SpawnPatient();
+    private void SetPatientData(Patient p) {
+        var difficulty = GameManager.Instance.currentDifficulty;
+        var patienceTime = GetPatienceForDifficulty(difficulty);
+        p.patienceTime = patienceTime;
+        p.difficulty = difficulty;
+    }
+
+    private float GetPatienceForDifficulty(GameManager.Difficulty d) {
+        switch (d) {
+            case GameManager.Difficulty.Easy: return 60f;
+            case GameManager.Difficulty.Normal: return 70f;
+            case GameManager.Difficulty.Medium: return 90f;
+            case GameManager.Difficulty.Hard: return 100f;
+        }
+
+        return 100f;
     }
 }
