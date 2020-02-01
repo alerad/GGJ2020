@@ -15,6 +15,7 @@ public class Potion : ScriptableObject {
         Lemon,
         Strawberry,
         Scarab
+        //Butter 
     }
 }
 

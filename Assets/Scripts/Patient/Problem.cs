@@ -10,6 +10,7 @@ public class Problem : ScriptableObject {
     public Texture icon;
     public float credibilityRestoration;
     public SpawnLocation spawnLocation;
+    public GameManager.Difficulty difficulty;
     
     public enum SpawnLocation {
         Intestines,

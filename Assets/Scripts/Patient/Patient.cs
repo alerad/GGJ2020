@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MonKey.Extensions;
 using UnityEngine;
 
 public class Patient : MonoBehaviour {
     public GameManager.Difficulty difficulty;
-    private List<Problem> problems;
+    public List<Problem> problems;
     public float patienceTime;
 
     private void Start() {
@@ -24,7 +25,20 @@ public class Patient : MonoBehaviour {
         var patienceTime = GetPatienceForDifficulty(difficulty);
         this.patienceTime = patienceTime;
         this.difficulty = difficulty;
+        problems = GetProblems();
     }
+
+    private List<Problem> GetProblems() {
+        List<Problem> problems = new List<Problem>();
+        
+        for (int i = 0; i < GetProblemsCountForDifficulty(difficulty); i++)
+            problems.Add(GetRandomProblem(difficulty));
+
+        return problems;
+    }
+    
+    private Problem GetRandomProblem(GameManager.Difficulty d) =>
+        ScriptableObjectContainer.Instance.problems.Where(x => x.difficulty <= d).ToList().GetRandom();
 
     private float GetPatienceForDifficulty(GameManager.Difficulty d) {
         switch (d) {
@@ -36,9 +50,16 @@ public class Patient : MonoBehaviour {
 
         return 100f;
     }
+    
+    private int GetProblemsCountForDifficulty(GameManager.Difficulty d) {
+        switch (d) {
+            case GameManager.Difficulty.Easy: return 1;
+            case GameManager.Difficulty.Normal: return 1;
+            case GameManager.Difficulty.Medium: return 1;
+            case GameManager.Difficulty.Hard: return 2;
+        }
 
-    //TODO Hacer que sea pseudorandom
-//    private Problem GetRandomProblem() {
-//        
-//    }
+        return 2;
+    }
+    
 }
