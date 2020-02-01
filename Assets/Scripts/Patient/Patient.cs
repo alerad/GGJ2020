@@ -13,6 +13,7 @@ public class Patient : MonoBehaviour {
         SetPatientData();
     }
 
+    
     private bool IsPotionOkay(Potion p) {
         var potionOk = problems
             .First(x => x.potions.First(y => y == p));
