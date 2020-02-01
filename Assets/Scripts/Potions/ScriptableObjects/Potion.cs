@@ -7,7 +7,14 @@ public class Potion : ScriptableObject {
     public List<Ingredient> ingredients;
 
     public enum Ingredient {
-        Mushroom
+        Radish,
+        Ginger,
+        Rosemary,
+        Coconut,
+        Mushroom,
+        Lemon,
+        Strawberry,
+        Scarab
     }
 }
 
