@@ -42,14 +42,6 @@ sysinfo.txt
 Assets/TextMesh Pro
 ProjectSettings/Packages/com.unity.probuilder
 LightingData.asset
-LightingData.asset.meta
-*.MonKey Settings.asset
-*."MonKey Settings.asset"
-*.MonKey*Settings.asset
-*.MonKey\ Settings.asset
-*.MonKey\sSettings.asset
-Assets/Plugins/MonKey Commander/Editor/Settings/MonKey Settings.asset
-Assets/Demigiant/DOTween
 Assets/External/AmplifyImpostors/Plugins
 Assets/External/AmplifyImpostors
 Assets/GPUInstancer/Extras.meta
@@ -58,7 +50,6 @@ Assets/Koreographer/Integrations.meta
 Assets/ProCore
 Assets/External/VrTunnellingPro
 Assets/Plugins/Koreographer
-Assets/Plugins/MonKey Commander
 Assets/Plugins/RootMotion
 Assets/Skybox Pack 8k UHD
 Assets/PostProcessing.meta

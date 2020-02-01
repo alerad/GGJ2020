@@ -14,6 +14,14 @@ public class Patient : MonoBehaviour {
     }
 
     
+    private void TryCurePlayer(Potion p) {
+        if (IsPotionOkay(p))
+            GameManager.Instance.OnPatientSucceed();
+        else
+            GameManager.Instance.OnPatientFail();
+    }
+
+    
     private bool IsPotionOkay(Potion p) {
         var potionOk = problems
             .First(x => x.potions.First(y => y == p));
