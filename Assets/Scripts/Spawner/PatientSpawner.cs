@@ -29,5 +29,7 @@ public class PatientSpawner : Singleton<PatientSpawner>
     public void DeletePatient(){
         Destroy(currPatient.gameObject);
     }
-  
+
+    public Patient GetPatient() => currPatient;
+
 }

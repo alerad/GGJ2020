@@ -7,6 +7,7 @@ using UnityEngine;
 public class Patient : MonoBehaviour {
     public GameManager.Difficulty difficulty;
     public List<Problem> problems;
+    private int currProblem = 0;
     public float patienceTime;
 
     private void Start() {
@@ -14,19 +15,27 @@ public class Patient : MonoBehaviour {
     }
 
     
-    private void TryCurePlayer(Potion p) {
+    public void TryCurePlayer(Potion p) {
         if (IsPotionOkay(p))
             GameManager.Instance.OnPatientSucceed();
         else
             GameManager.Instance.OnPatientFail();
+
+        currProblem++;
     }
 
     
     private bool IsPotionOkay(Potion p) {
-        var potionOk = problems
-            .First(x => x.potions.First(y => y == p));
+        if (p == null)
+            return false;
+        
+        var potionOk = problems[currProblem]
+            .potions
+            .First(x => x.ingredients
+                .OrderBy(y => (int)y)
+                .SequenceEqual(p.ingredients.OrderBy(av => (int)av)));
 
-        return potionOk == null;
+        return potionOk != null;
     }
     
     private void SetPatientData() {
