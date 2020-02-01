@@ -1,49 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UniRx;
 using UnityEngine;
 
+public class DoctorVision : MonoBehaviour {
+   private OVRHand[] hands;
+   
+   public ReactiveProperty<bool> inDoctorVision;
 
+   private void Start() {
+      hands = new OVRHand[]
+      {
+         GameObject.Find("OVRCameraRig/TrackingSpace/LeftHandAnchor/OVRHandPrefab").GetComponent<OVRHand>(),
+         GameObject.Find("OVRCameraRig/TrackingSpace/RightHandAnchor/OVRHandPrefab").GetComponent<OVRHand>()
+      };
+      
+      Observable.EveryUpdate().Subscribe(x => CheckDoctorVision());
+   }
 
-public class DoctorVision : MonoBehaviour
-{
+   private void CheckDoctorVision() {
+      if (hands.All(x => x.GetFingerIsPinching(OVRHand.HandFinger.Index))
+            && OnVisionTrigger()) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+      }
+   }
 
-    public Transform cam;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)) {
-            Vector3 pos = cam.transform.localPosition;
-            pos.x -= 0.01f;
-            cam.transform.localPosition = pos;
-        }
-
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)) {
-            Vector3 pos = cam.transform.localPosition;
-            pos.x += 0.01f;
-            cam.transform.localPosition = pos;
-        }
-
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)) {
-            Vector3 pos = cam.transform.localPosition;
-            pos.y += 0.01f;
-            cam.transform.localPosition = pos;
-
-        }
-
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)) {
-            Vector3 pos = cam.transform.localPosition;
-            pos.y -= 0.01f;
-            cam.transform.localPosition = pos;
-        }
-
-
-
-    }
+   private bool OnVisionTrigger() {
+      throw new NotImplementedException();
+   }
 }
