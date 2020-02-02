@@ -16,9 +16,10 @@ public class Patient : MonoBehaviour {
 
     
     public void TryCurePlayer(Potion p) {
-        if (IsPotionOkay(p) && problems.Count - 1 >= currProblem) {
+        if (IsPotionOkay(p)) {
             Debug.Log("Potion is ok");
-            GameManager.Instance.OnPatientSucceed();
+            if (problems.Count - 1 == currProblem)
+                GameManager.Instance.OnPatientSucceed();
         }
         else {
             Debug.Log("Potion is wrong");
@@ -40,7 +41,8 @@ public class Patient : MonoBehaviour {
         
         var potionOk = problems[currProblem]
             .potions
-            .First(
+            .DefaultIfEmpty(null)
+            .FirstOrDefault(
                 x => x.ingredients.OrderBy(y => (int)y)
                     .SequenceEqual(p.ingredients
                         .OrderBy(av => (int)av)
