@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Problem", order = 1)]
 public class Problem : ScriptableObject {
     public List<Potion> potions;
+    public ProblemType problemType;
     public String name;
     public Texture icon;
     public float credibilityRestoration;
@@ -14,8 +15,15 @@ public class Problem : ScriptableObject {
     
     public enum SpawnLocation {
         Intestines,
-        Head,
-        Hands
+        Brain,
+        Throat,
+        Heart,
+        Stomach
+    }
+
+    public enum ProblemType {
+        Physical,
+        Abstract
     }
     
 }

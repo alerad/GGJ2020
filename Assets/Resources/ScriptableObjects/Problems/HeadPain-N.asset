@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af8061e6989847fd809d78015ad67cb, type: 3}
-  m_Name: EasyProblem
+  m_Name: HeadPain-N
   m_EditorClassIdentifier: 
   potions:
-  - {fileID: 11400000, guid: 3192e7232039641cea1a7091a4050c1c, type: 2}
-  name: Easy Problem
-  icon: {fileID: 2800000, guid: 2314f2250e16c224fbaa392942901582, type: 3}
-  credibilityRestoration: 10
-  spawnLocation: 0
-  difficulty: 0
+  - {fileID: 11400000, guid: b520489925a124cdb9067e04a1d0f9bc, type: 2}
+  problemType: 0
+  name: Head Pain
+  icon: {fileID: 0}
+  credibilityRestoration: 0
+  spawnLocation: 1
+  difficulty: 1

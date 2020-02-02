@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af8061e6989847fd809d78015ad67cb, type: 3}
-  m_Name: EasyProblem 1
+  m_Name: ArtBlock-N
   m_EditorClassIdentifier: 
   potions:
-  - {fileID: 11400000, guid: 83fd49828b11748c39a1ad923f651cda, type: 2}
-  name: Easy Problem
-  icon: {fileID: 2800000, guid: 2314f2250e16c224fbaa392942901582, type: 3}
-  credibilityRestoration: 10
-  spawnLocation: 0
-  difficulty: 0
+  - {fileID: 11400000, guid: bc7cb8195f0234049ac7851bb0e3329f, type: 2}
+  problemType: 1
+  name: Artist Block
+  icon: {fileID: 0}
+  credibilityRestoration: 0
+  spawnLocation: 1
+  difficulty: 1

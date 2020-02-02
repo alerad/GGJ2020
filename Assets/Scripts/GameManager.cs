@@ -25,15 +25,13 @@ public class GameManager : Singleton<GameManager> {
             : (Difficulty) difficultyInt;
 
     private void Start() {
-
-        
         PatientSpawner.Instance.SpawnFirstPatient();
        
         Observable.EveryUpdate()
             .Where(x => Input.GetKeyDown(KeyCode.A))
             .Subscribe(x => {
-                var ings = new List<Potion.Ingredient> {Potion.Ingredient.Rosemary, Potion.Ingredient.Radish};
-                var p = IngredientMixer.MixPotion(ings);
+                var ingsFromProblem = currentPatient.problems.First().potions.SelectMany(b => b.ingredients);
+                var p = IngredientMixer.MixPotion(ingsFromProblem.ToList());
                 currentPatient.TryCurePlayer(p);
             });
     }
