@@ -17,8 +17,14 @@ public class ItemGrabber1 : MonoBehaviour {
    private void Update() {
 
       if (hand != null) {
-         if (!hand.IsTracked)
+         if (!hand.IsTracked) {
+            itemInHand.SetActive(false);
             return;
+         }
+         else {
+            //TODO Si deja de seguirlo, probar re-poner el target
+            itemInHand.SetActive(true);
+         }
          
          if (AnyPinching(hand) && handStaying)
             GrabItemLogic();
