@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerHand
   - Ingredient
+  - Cauldron
   layers:
   - Default
   - TransparentFX

@@ -17,5 +17,10 @@ public static class IngredientMixer {
         return matchingPotions.Count > 0 ? matchingPotions.First() : null;
     }
 
+    public static Potion.Ingredient GetIngredientByName(string name) {
+        Enum.TryParse(name, out Potion.Ingredient ing);
+        return ing;
+    }
+
     
 }

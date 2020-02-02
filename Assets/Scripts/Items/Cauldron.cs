@@ -22,6 +22,10 @@ public class Cauldron : MonoBehaviour {
         currentPotion = null;
     }
 
+    public void AddIngredient(Potion.Ingredient i) {
+        currentIngredients.Add(i);
+    }
+
     private void PotionCreated(Potion potion) {
         currentPotion = potion;
     }
