@@ -19,6 +19,11 @@ public class Cauldron : MonoBehaviour {
         Observable.EveryUpdate().Where(x => Input.GetKeyDown(KeyCode.M)).Subscribe(_ => MixCauldron());
     }
 
+    public void ResetCauldron() {
+        currentIngredients = new List<Potion.Ingredient>();
+        currentPotion = null;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
@@ -30,10 +35,8 @@ public class Cauldron : MonoBehaviour {
 
         if (potion == null) {
             MixFailed();
-            currentIngredients = new List<Potion.Ingredient>();
         }
         else {
-            currentIngredients = new List<Potion.Ingredient>();
             PotionCreated(potion);
         }
     }
@@ -41,7 +44,6 @@ public class Cauldron : MonoBehaviour {
 
     void HardcodeCure()
     {
-        currentIngredients = new List<Potion.Ingredient>();
         GameManager.Instance.currentPatient.TryCurePlayer(currentPotion, Problem.SpawnLocation.Brain);
     }
 
@@ -51,8 +53,6 @@ public class Cauldron : MonoBehaviour {
 
     public void AddIngredient(Potion.Ingredient i) {
         currentIngredients.Add(i);
-        if (currentIngredients.Count == 2)
-            Invoke("HardcodeCure", 2f);
     }
 
     private void PotionCreated(Potion potion) {

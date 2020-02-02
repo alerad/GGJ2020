@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager> {
     public int patientsForDifficultyChange;
     private int patientsSucceed;
     private int patientsFailed;
+    private Cauldron cauldron;
     
     [NonSerialized]
     public Potion potionInHand;
@@ -28,7 +29,7 @@ public class GameManager : Singleton<GameManager> {
     private void Start() {
         PatientSpawner.Instance.SpawnFirstPatient();
         SpawnIngredientsForPatient();
-        
+        cauldron = FindObjectOfType<Cauldron>();
         Observable.EveryUpdate()
             .Where(x => Input.GetKeyDown(KeyCode.A))
             .Subscribe(x => {
@@ -55,6 +56,7 @@ public class GameManager : Singleton<GameManager> {
     public void NextPatient() {
         var patientSpawner = PatientSpawner.Instance;
         patientSpawner.SpawnAndDelete();
+        cauldron.ResetCauldron();
         SpawnIngredientsForPatient();
     }
 
