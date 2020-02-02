@@ -2449,6 +2449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Virtual Console
       objectReference: {fileID: 0}
+    - target: {fileID: 186566, guid: 3d39e9e8170cdc84f996675de719e4b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 466558, guid: 3d39e9e8170cdc84f996675de719e4b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2907,7 +2911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1255334532
 BoxCollider:
   m_ObjectHideFlags: 0

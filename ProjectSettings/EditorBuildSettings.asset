@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FPSTesting.unity
-    guid: 129faf9627b1f4875b4cd8aabda0418a
-  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 891062de6f94b428fac92f8b6c64eaee
+  - enabled: 0
+    path: Assets/Scenes/FPSTesting.unity
+    guid: 129faf9627b1f4875b4cd8aabda0418a
   - enabled: 0
     path: Assets/Scenes/VisionTesting.unity
     guid: 8580625f2cb054c918337048a402a444
