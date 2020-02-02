@@ -7,26 +7,24 @@ using UnityEngine;
 public class Patient : MonoBehaviour {
     public GameManager.Difficulty difficulty;
     public List<Problem> problems;
-    private int currProblem = 0;
     public float patienceTime;
 
     private void Start() {
         SetPatientData();
     }
-
     
     public void TryCurePlayer(Potion p) {
-        if (IsPotionOkay(p) != null) {
+        var potOk = IsPotionOkay(p);
+        if (potOk != null) {
             Debug.Log("Potion is ok");
-            if (problems.Count - 1 == currProblem)
+            problems.Remove(potOk);
+            if (problems.Count == 0)
                 GameManager.Instance.OnPatientSucceed();
         }
         else {
             Debug.Log("Potion is wrong");
             GameManager.Instance.OnPatientFail();
         }
-
-        currProblem++;
     }
 
     
