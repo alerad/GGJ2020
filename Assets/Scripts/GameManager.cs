@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager> {
     private int difficultyInt =>
         Mathf.RoundToInt((patientsSucceed + patientsFailed) / patientsForDifficultyChange);
 
-    private Patient currentPatient => PatientSpawner.Instance.GetPatient();
+    public Patient currentPatient => PatientSpawner.Instance.GetPatient();
     
     public Difficulty currentDifficulty =>
        difficultyInt
@@ -32,7 +32,7 @@ public class GameManager : Singleton<GameManager> {
             .Subscribe(x => {
                 var ingsFromProblem = currentPatient.problems.First().potions.SelectMany(b => b.ingredients);
                 var p = IngredientMixer.MixPotion(ingsFromProblem.ToList());
-                currentPatient.TryCurePlayer(p);
+                currentPatient.TryCurePlayer(p, Problem.SpawnLocation.Intestines);
             });
         
     }
@@ -41,6 +41,7 @@ public class GameManager : Singleton<GameManager> {
     public void OnPatientSucceed() {
         Debug.Log("Patient succeded");
         patientsSucceed++;
+        potionInHand = null;
         PatientSpawner.Instance.SpawnAndDelete();
     }
 
