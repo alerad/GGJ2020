@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571a8c176ab26426cb2a84be405d2b11, type: 3}
   m_Name: Cold-H
   m_EditorClassIdentifier: 
-  ingredients: 05000000050000000100000001000000
+  ingredients: 04000000040000000100000001000000

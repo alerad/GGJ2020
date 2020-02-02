@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571a8c176ab26426cb2a84be405d2b11, type: 3}
   m_Name: Wordless-M
   m_EditorClassIdentifier: 
-  ingredients: 050000000400000004000000
+  ingredients: 030000000400000004000000

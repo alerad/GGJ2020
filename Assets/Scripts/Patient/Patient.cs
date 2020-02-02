@@ -107,10 +107,10 @@ public class Patient : MonoBehaviour {
     
     private int GetProblemsCountForDifficulty(GameManager.Difficulty d) {
         switch (d) {
-            case GameManager.Difficulty.Easy: return 3;
+            case GameManager.Difficulty.Easy: return 1;
             case GameManager.Difficulty.Normal: return 1;
-            case GameManager.Difficulty.Medium: return 1;
-            case GameManager.Difficulty.Hard: return 1;
+            case GameManager.Difficulty.Medium: return 2;
+            case GameManager.Difficulty.Hard: return 3;
         }
 
         return 2;
