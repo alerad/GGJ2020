@@ -14,4 +14,6 @@ public class ThumbsUp : MonoBehaviour {
     private void Update() {
         text.text = $"Right hand middlef: {handR.GetFingerPinchStrength(OVRHand.HandFinger.Middle)}\nLeft hand middlef: {handL.GetFingerPinchStrength(OVRHand.HandFinger.Middle)}";
     }
+    
+    
 }

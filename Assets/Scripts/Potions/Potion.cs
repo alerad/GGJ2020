@@ -18,7 +18,6 @@ public class Potion : ScriptableObject {
     public enum Ingredient {
         Radish,
         Ginger,
-        Rosemary,
         Coconut,
         Amanita,
         Lemon,

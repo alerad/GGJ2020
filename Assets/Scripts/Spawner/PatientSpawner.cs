@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class PatientSpawner : Singleton<PatientSpawner>
@@ -9,6 +10,12 @@ public class PatientSpawner : Singleton<PatientSpawner>
     private Patient patient;
     private Patient currPatient;
     public Transform patientspawnpoint;
+    public Subject<Patient> onPatientSpawn;
+    protected override void Awake() {
+        base.Awake();
+        onPatientSpawn = new Subject<Patient>();
+
+    }
 
     private void Start()
     {
@@ -32,6 +39,7 @@ public class PatientSpawner : Singleton<PatientSpawner>
         currPatient.transform.position = patientspawnpoint.position;
         RandomColorForPlayer();
         currPatient.SetPatientData();
+        onPatientSpawn.OnNext(currPatient);
         return currPatient;
     }
 
