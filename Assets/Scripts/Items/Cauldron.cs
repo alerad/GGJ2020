@@ -9,13 +9,37 @@ public class Cauldron : MonoBehaviour {
     private Potion currentPotion = null;
     private int handsInCauldron = 0;
 
+    private void Awake()
+    {
+        currentIngredients = new List<Potion.Ingredient>();
+    }
+
+    private void Start()
+    {
+        Observable.EveryUpdate().Where(x => Input.GetKeyDown(KeyCode.M)).Subscribe(_ => MixCauldron());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+            HardcodeCure();
+    }
+
     public void MixCauldron() {
         var potion = IngredientMixer.MixPotion(currentIngredients);
         
         if (potion == null)
             MixFailed();
         else
+        {
             PotionCreated(potion);
+        }
+    }
+
+
+    void HardcodeCure()
+    {
+        GameManager.Instance.currentPatient.TryCurePlayer(currentPotion, Problem.SpawnLocation.Brain);
     }
 
     private void MixFailed() {
@@ -24,6 +48,8 @@ public class Cauldron : MonoBehaviour {
 
     public void AddIngredient(Potion.Ingredient i) {
         currentIngredients.Add(i);
+        if (currentIngredients.Count == 2)
+            Invoke("HardcodeCure", 2f);
     }
 
     private void PotionCreated(Potion potion) {

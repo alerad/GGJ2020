@@ -47,6 +47,8 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
 
     public void SpawnIngredientsForPotion(Potion pot)
     {
+        Debug.Log("Spawning ingrediennts");
+        //TODO Support multiple potions per patient
         currentIngredients.ForEach(Destroy);
         pot.ingredients.ForEach(SpawnIngredientRandom);
         List<Potion.Ingredient> availableIngredients = Potion.GetAllIngredients();
@@ -59,9 +61,12 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
 
     void SpawnIngredientRandom(Potion.Ingredient ingr)
     {
-        GameObject prefab = (GameObject)Resources.Load("prefabs/" + Enum.GetName(typeof(Potion.Ingredient), ingr), typeof(GameObject));
+        var ingrName = Enum.GetName(typeof(Potion.Ingredient), ingr);
+        GameObject prefab = (GameObject)Resources.Load("prefabs/" + ingrName, typeof(GameObject));
         Transform s = GetRandomSpawn();
-        currentIngredients.Add(Instantiate(prefab, s.position, new Quaternion(), this.transform));
+        var ing = Instantiate(prefab, s.position, new Quaternion(), this.transform);
+        ing.name = ingrName;
+        currentIngredients.Add(ing);
     }
 
     Transform GetRandomSpawn()

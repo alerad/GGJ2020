@@ -10,7 +10,6 @@ public class Patient : MonoBehaviour {
     public float patienceTime;
 
     private void Start() {
-        SetPatientData();
     }
     /// <summary>
     /// Tries to cure a player, based on a spawn location
@@ -63,7 +62,7 @@ public class Patient : MonoBehaviour {
         return passedProblem;
     }
     
-    private void SetPatientData() {
+    public void SetPatientData() {
         var difficulty = GameManager.Instance.currentDifficulty;
         var patienceTime = GetPatienceForDifficulty(difficulty);
         this.patienceTime = patienceTime;
@@ -96,7 +95,7 @@ public class Patient : MonoBehaviour {
     
     private int GetProblemsCountForDifficulty(GameManager.Difficulty d) {
         switch (d) {
-            case GameManager.Difficulty.Easy: return 3;
+            case GameManager.Difficulty.Easy: return 1;
             case GameManager.Difficulty.Normal: return 1;
             case GameManager.Difficulty.Medium: return 1;
             case GameManager.Difficulty.Hard: return 1;

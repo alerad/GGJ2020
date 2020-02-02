@@ -19,7 +19,7 @@ public class ItemGrabber1 : MonoBehaviour {
       if (hand != null) {
          if (AnyPinching(hand) && handStaying)
             GrabItemLogic();
-         else if (cauldron != null)
+         else if (cauldron != null && !AnyPinching(hand))
             AddCauldronIngredient();
       }
       else {
@@ -35,6 +35,8 @@ public class ItemGrabber1 : MonoBehaviour {
    private void AddCauldronIngredient() {
       Debug.Log("Dropping into cauldron");
       cauldron.AddIngredient(IngredientMixer.GetIngredientByName(itemInHand.name));
+     
+
       Destroy(itemInHand);
       itemToGrab = null;
       itemInHand = null;

@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager> {
     private int patientsSucceed;
     private int patientsFailed;
     
+    [NonSerialized]
     public Potion potionInHand;
     
     private int difficultyInt =>
@@ -26,7 +27,8 @@ public class GameManager : Singleton<GameManager> {
 
     private void Start() {
         PatientSpawner.Instance.SpawnFirstPatient();
-       
+        SpawnIngredientsForPatient();
+        
         Observable.EveryUpdate()
             .Where(x => Input.GetKeyDown(KeyCode.A))
             .Subscribe(x => {
@@ -41,15 +43,26 @@ public class GameManager : Singleton<GameManager> {
         Debug.Log("Patient succeded");
         patientsSucceed++;
         potionInHand = null;
-        PatientSpawner.Instance.SpawnAndDelete();
+        NextPatient();
     }
 
     public void OnPatientFail() {
         Debug.Log("Patient failed");
         patientsFailed++;
-        PatientSpawner.Instance.SpawnAndDelete();
+        NextPatient();
     }
 
+    public void NextPatient() {
+        var patientSpawner = PatientSpawner.Instance;
+        patientSpawner.SpawnAndDelete();
+        SpawnIngredientsForPatient();
+    }
+
+
+    private void SpawnIngredientsForPatient() =>
+        currentPatient.problems.SelectMany(x => x.potions).ToList()
+            .ForEach(IngredientSpawner.Instance.SpawnIngredientsForPotion);
+    
     public enum Difficulty {
         Easy,
         Normal,

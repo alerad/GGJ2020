@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571a8c176ab26426cb2a84be405d2b11, type: 3}
   m_Name: ArtBlock-H
   m_EditorClassIdentifier: 
-  ingredients: 0000000004000000000000000200000004000000
+  ingredients: 00000000040000000000000004000000
