@@ -12,9 +12,13 @@ public class Patient : MonoBehaviour {
     private void Start() {
         SetPatientData();
     }
-    
-    public void TryCurePlayer(Potion p) {
-        var potOk = IsPotionOkay(p);
+    /// <summary>
+    /// Tries to cure a player, based on a spawn location
+    /// </summary>
+    /// <param name="p"></param>
+    /// <param name="spawnLocation"></param>
+    public void TryCurePlayer(Potion p, Problem.SpawnLocation spawnLocation) {
+        var potOk = IsPotionOkay(p, spawnLocation);
         if (potOk != null) {
             Debug.Log("Potion is ok");
             problems.Remove(potOk);
@@ -33,7 +37,7 @@ public class Patient : MonoBehaviour {
     /// </summary>
     /// <param name="p"></param>
     /// <returns>Which problem was healed, null if none</returns>
-    private Problem IsPotionOkay(Potion p) {
+    private Problem IsPotionOkay(Potion p, Problem.SpawnLocation l) {
         if (p == null)
             return null;
         
@@ -51,7 +55,9 @@ public class Patient : MonoBehaviour {
         })
             .DefaultIfEmpty(null)
             .FirstOrDefault();
-        
+
+        if (passedProblem != null && passedProblem.spawnLocation != l)
+            return null; //TODO Aca ponerle feedback al usuario de que es el area incorrecta
         
 
         return passedProblem;
