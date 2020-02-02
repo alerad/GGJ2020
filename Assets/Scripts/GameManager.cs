@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager> {
                 var p = IngredientMixer.MixPotion(ingsFromProblem.ToList());
                 currentPatient.TryCurePlayer(p, Problem.SpawnLocation.Intestines);
             });
-        
     }
 
     //Todo Validacion de que no se llame 2 veces muy rapido
