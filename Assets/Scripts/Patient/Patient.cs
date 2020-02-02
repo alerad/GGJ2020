@@ -16,10 +16,14 @@ public class Patient : MonoBehaviour {
 
     
     public void TryCurePlayer(Potion p) {
-        if (IsPotionOkay(p))
+        if (IsPotionOkay(p) && problems.Count - 1 >= currProblem) {
+            Debug.Log("Potion is ok");
             GameManager.Instance.OnPatientSucceed();
-        else
+        }
+        else {
+            Debug.Log("Potion is wrong");
             GameManager.Instance.OnPatientFail();
+        }
 
         currProblem++;
     }
@@ -79,7 +83,7 @@ public class Patient : MonoBehaviour {
     
     private int GetProblemsCountForDifficulty(GameManager.Difficulty d) {
         switch (d) {
-            case GameManager.Difficulty.Easy: return 1;
+            case GameManager.Difficulty.Easy: return 2;
             case GameManager.Difficulty.Normal: return 1;
             case GameManager.Difficulty.Medium: return 1;
             case GameManager.Difficulty.Hard: return 2;

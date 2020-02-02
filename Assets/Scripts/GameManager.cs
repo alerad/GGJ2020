@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager> {
         Observable.EveryUpdate()
             .Where(x => Input.GetKeyDown(KeyCode.A))
             .Subscribe(x => {
-                var ings = new List<Potion.Ingredient> {Potion.Ingredient.Rosemary, Potion.Ingredient.Radish, Potion.Ingredient.Lemon};
+                var ings = new List<Potion.Ingredient> {Potion.Ingredient.Rosemary, Potion.Ingredient.Radish};
                 var p = IngredientMixer.MixPotion(ings);
                 currentPatient.TryCurePlayer(p);
             });
