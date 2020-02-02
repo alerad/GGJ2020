@@ -75,11 +75,20 @@ public class Patient : MonoBehaviour {
 
     private List<Problem> GetProblems() {
         List<Problem> problems = new List<Problem>();
-        
-        for (int i = 0; i < GetProblemsCountForDifficulty(difficulty); i++)
-            problems.Add(GetRandomProblem(difficulty));
+
+        for (int i = 0; i < GetProblemsCountForDifficulty(difficulty); i++) {
+            problems.Add(GetProblem(problems));
+        }
 
         return problems;
+    }
+
+    private Problem GetProblem(List<Problem> problems) {
+        var prob = GetRandomProblem(difficulty);
+        if (problems.Count(x => x.spawnLocation == prob.spawnLocation) == 0)
+            return prob;
+        
+        return GetProblem(problems);
     }
     
     private Problem GetRandomProblem(GameManager.Difficulty d) =>
@@ -98,7 +107,7 @@ public class Patient : MonoBehaviour {
     
     private int GetProblemsCountForDifficulty(GameManager.Difficulty d) {
         switch (d) {
-            case GameManager.Difficulty.Easy: return 1;
+            case GameManager.Difficulty.Easy: return 3;
             case GameManager.Difficulty.Normal: return 1;
             case GameManager.Difficulty.Medium: return 1;
             case GameManager.Difficulty.Hard: return 1;
