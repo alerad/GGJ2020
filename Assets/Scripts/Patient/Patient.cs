@@ -25,15 +25,23 @@ public class Patient : MonoBehaviour {
     }
 
     
+    /// <summary>
+    /// Checks if all ingredients in the potion match with any of the potions for the current problem
+    /// </summary>
+    /// <param name="p"></param>
+    /// <returns>True if potion cures patient</returns>
     private bool IsPotionOkay(Potion p) {
         if (p == null)
             return false;
         
         var potionOk = problems[currProblem]
             .potions
-            .First(x => x.ingredients
-                .OrderBy(y => (int)y)
-                .SequenceEqual(p.ingredients.OrderBy(av => (int)av)));
+            .First(
+                x => x.ingredients.OrderBy(y => (int)y)
+                    .SequenceEqual(p.ingredients
+                        .OrderBy(av => (int)av)
+                    )
+            );
 
         return potionOk != null;
     }
