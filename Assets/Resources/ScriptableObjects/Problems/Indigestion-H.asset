@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3683c5cd031da43c0b1d06fca7e04538, type: 2}
   problemType: 0
   name: Indigestion
-  icon: {fileID: 0}
+  icon: {fileID: -6760921949424562881, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 4
   difficulty: 3

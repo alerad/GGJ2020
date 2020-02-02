@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30d8632d741b5483eae24bfcd7ad435d, type: 2}
   problemType: 0
   name: Knot In The Guts
-  icon: {fileID: 0}
+  icon: {fileID: -780583673387479316, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 0
   difficulty: 2

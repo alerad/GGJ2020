@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8a7b6d192918489cac1593ef4e2dc13, type: 2}
   problemType: 1
   name: Artist Block
-  icon: {fileID: 0}
+  icon: {fileID: -642735567151719049, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 1
   difficulty: 2

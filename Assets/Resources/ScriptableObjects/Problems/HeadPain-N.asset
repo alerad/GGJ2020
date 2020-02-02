@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b520489925a124cdb9067e04a1d0f9bc, type: 2}
   problemType: 0
   name: Head Pain
-  icon: {fileID: 0}
+  icon: {fileID: -4479152009867275086, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 1
   difficulty: 1

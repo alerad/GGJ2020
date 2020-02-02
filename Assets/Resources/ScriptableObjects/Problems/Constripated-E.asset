@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 069c09debb23b4ce69426ee1dd6696f1, type: 2}
   problemType: 0
   name: Constripated
-  icon: {fileID: 0}
+  icon: {fileID: 5069000359911153746, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 0
   difficulty: 0

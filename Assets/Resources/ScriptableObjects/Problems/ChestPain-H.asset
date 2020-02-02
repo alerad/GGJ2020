@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 598c9afd1232148baa24c1439611a7d7, type: 2}
   problemType: 0
   name: Chest Pain
-  icon: {fileID: 0}
+  icon: {fileID: 180878181739606850, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 2
   difficulty: 3

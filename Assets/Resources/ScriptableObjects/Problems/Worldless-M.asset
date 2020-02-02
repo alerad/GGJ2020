@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7188779689911468e8e76f87a1119630, type: 2}
   problemType: 0
   name: Worldless
-  icon: {fileID: 0}
+  icon: {fileID: -7368354122453029622, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 0
   difficulty: 2

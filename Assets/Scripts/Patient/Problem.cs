@@ -8,7 +8,7 @@ public class Problem : ScriptableObject {
     public List<Potion> potions;
     public ProblemType problemType;
     public String name;
-    public Texture icon;
+    public Sprite icon;
     public float credibilityRestoration;
     public SpawnLocation spawnLocation;
     public GameManager.Difficulty difficulty;

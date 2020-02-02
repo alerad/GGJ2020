@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b06ff87be1336464eb68fb901dc8d35c, type: 2}
   problemType: 0
   name: Cold
-  icon: {fileID: 0}
+  icon: {fileID: 8723856050584140958, guid: 9fd0dbc287f234ee58ca156dce15e54c, type: 3}
   credibilityRestoration: 0
   spawnLocation: 2
   difficulty: 3
