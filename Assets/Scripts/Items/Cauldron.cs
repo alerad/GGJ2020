@@ -28,16 +28,20 @@ public class Cauldron : MonoBehaviour {
     
     
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("PlayerHand"))
+        if (other.CompareTag("PlayerHand")) {
+            Debug.Log("Hand in cauldron enter!");
             handsInCauldron++;
+        }
         
         if (handsInCauldron == 2)
             GameManager.Instance.potionInHand = currentPotion;
     }
     
     private void OnTriggerExit(Collider other) {
-        if (other.CompareTag("PlayerHand"))
+        if (other.CompareTag("PlayerHand")) {
             handsInCauldron--;
+            Debug.Log("Hand in cauldron exit!");
+        }
     }
     
 }
