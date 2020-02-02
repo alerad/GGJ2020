@@ -27,11 +27,13 @@ public class Cauldron : MonoBehaviour {
 
     public void MixCauldron() {
         var potion = IngredientMixer.MixPotion(currentIngredients);
-        
-        if (potion == null)
+
+        if (potion == null) {
             MixFailed();
-        else
-        {
+            currentIngredients = new List<Potion.Ingredient>();
+        }
+        else {
+            currentIngredients = new List<Potion.Ingredient>();
             PotionCreated(potion);
         }
     }
@@ -39,6 +41,7 @@ public class Cauldron : MonoBehaviour {
 
     void HardcodeCure()
     {
+        currentIngredients = new List<Potion.Ingredient>();
         GameManager.Instance.currentPatient.TryCurePlayer(currentPotion, Problem.SpawnLocation.Brain);
     }
 
