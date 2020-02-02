@@ -37,9 +37,9 @@ public class PatientSpawner : Singleton<PatientSpawner>
     public Patient SpawnPatient() {
         currPatient = Instantiate(patient);
         currPatient.transform.position = patientspawnpoint.position;
-        RandomColorForPlayer();
+        //RandomColorForPlayer();
         currPatient.SetPatientData();
-        onPatientSpawn.OnNext(currPatient);
+        //onPatientSpawn.OnNext(currPatient);
         return currPatient;
     }
 

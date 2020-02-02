@@ -63,6 +63,7 @@ public class GameManager : Singleton<GameManager> {
 
     private void SpawnIngredientsForPatient()
     {
+        Debug.Log("se llama!!!!!");
         IngredientSpawner.Instance.ClearRemaining();
         currentPatient.problems.SelectMany(x => x.potions).ToList()
             .ForEach(IngredientSpawner.Instance.SpawnIngredientsForPotion);
