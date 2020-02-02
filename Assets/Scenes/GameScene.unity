@@ -1740,22 +1740,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: eff372c566ce94651a6f157cd150783c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071069
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eff372c566ce94651a6f157cd150783c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.70710665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eff372c566ce94651a6f157cd150783c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000005338507
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eff372c566ce94651a6f157cd150783c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.000000053385087
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eff372c566ce94651a6f157cd150783c,
         type: 3}
@@ -1775,7 +1775,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: eff372c566ce94651a6f157cd150783c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90.00001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff372c566ce94651a6f157cd150783c, type: 3}
@@ -4063,6 +4063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: casa
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dee6cddb0c90c401997a5cb2858432a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dee6cddb0c90c401997a5cb2858432a0,
         type: 3}
