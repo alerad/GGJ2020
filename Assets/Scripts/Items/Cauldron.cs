@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class Cauldron : MonoBehaviour {
     private List<Potion.Ingredient> currentIngredients;
     private Potion currentPotion = null;
+    private int handsInCauldron = 0;
 
     public void MixCauldron() {
         var potion = IngredientMixer.MixPotion(currentIngredients);
@@ -23,5 +26,18 @@ public class Cauldron : MonoBehaviour {
         currentPotion = potion;
     }
     
+    
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("PlayerHand"))
+            handsInCauldron++;
+        
+        if (handsInCauldron == 2)
+            GameManager.Instance.potionInHand = currentPotion;
+    }
+    
+    private void OnTriggerExit(Collider other) {
+        if (other.CompareTag("PlayerHand"))
+            handsInCauldron--;
+    }
     
 }

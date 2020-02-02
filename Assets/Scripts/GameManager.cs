@@ -10,6 +10,9 @@ public class GameManager : Singleton<GameManager> {
     public int patientsForDifficultyChange;
     private int patientsSucceed;
     private int patientsFailed;
+    
+    public Potion potionInHand;
+    
     private int difficultyInt =>
         Mathf.RoundToInt((patientsSucceed + patientsFailed) / patientsForDifficultyChange);
 
