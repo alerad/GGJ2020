@@ -38,6 +38,10 @@ public class IngredientSpawner : Singleton<IngredientSpawner>
     {
         spawnPoints = new List<SpawnPoint>();
         currentIngredients = new List<GameObject>();
+        if (spawns == null) {
+            Debug.Log("No spawns set!");
+            return;
+        }
         spawns.ForEach(s => spawnPoints.Add(new SpawnPoint(s)));
         ingrParent = new GameObject("ingredient-parent").transform;
         currentExtras = 0;

@@ -17,6 +17,15 @@ public class ItemGrabber1 : MonoBehaviour {
    private void Update() {
 
       if (hand != null) {
+         if (!hand.IsTracked) {
+            itemInHand.SetActive(false);
+            return;
+         }
+         else {
+            //TODO Si deja de seguirlo, probar re-poner el target
+            itemInHand.SetActive(true);
+         }
+         
          if (AnyPinching(hand) && handStaying)
             GrabItemLogic();
          else if (cauldron != null && !AnyPinching(hand))
@@ -55,12 +64,16 @@ public class ItemGrabber1 : MonoBehaviour {
          return;
 
       if (!ReferenceEquals(itemToGrab, null)) {
-         itemToGrab.parent = transform;
+         var of = itemToGrab.GetComponent<ObjectFollower>();
+         of.target = transform;
          itemInHand = itemToGrab.gameObject;
       }
    }
 
    private void OnTriggerEnter(Collider other) {
+      if (!isTracked)
+         return;
+      
       if (other.CompareTag("Ingredient")) {
          Debug.Log("Trigger enter ingredient");
          handStaying = true;
@@ -73,7 +86,10 @@ public class ItemGrabber1 : MonoBehaviour {
       }
    }
 
-   private void OnTriggerExit(Collider other) {
+   private void OnTriggerExit(Collider other) { 
+      if (!isTracked)
+         return;
+   
       if (other.CompareTag("Ingredient")) {
          Debug.Log("Trigger exit ingredient");
          handStaying = false;
@@ -85,5 +101,7 @@ public class ItemGrabber1 : MonoBehaviour {
          cauldron = null;
       }
    }
+
+   private bool isTracked => hand == null || hand.IsTracked;
 
 }

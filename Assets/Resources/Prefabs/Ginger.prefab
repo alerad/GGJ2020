@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1448565167175909045}
   - component: {fileID: 9188687490069588008}
+  - component: {fileID: -796882632587758694}
   m_Layer: 0
   m_Name: Ginger
   m_TagString: Ingredient
@@ -228,3 +229,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.35359275, y: 0.29062843, z: 0.26499557}
   m_Center: {x: 0, y: 0.008639216, z: 0}
+--- !u!114 &-796882632587758694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111147715727045015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6615c0c1cbcc4435b5b4e7eb75a47dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}

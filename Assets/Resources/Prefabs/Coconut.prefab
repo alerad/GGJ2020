@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6959530983357097852}
   - component: {fileID: 4473395538194773226}
+  - component: {fileID: 6140564732644311166}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Ingredient
@@ -46,6 +47,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41296756, y: 0.3825855, z: 0.37159988}
   m_Center: {x: -0.035797536, y: -0.0018017292, z: 0.022373334}
+--- !u!114 &6140564732644311166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297232117332748382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6615c0c1cbcc4435b5b4e7eb75a47dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1321182186537789137
 GameObject:
   m_ObjectHideFlags: 0
