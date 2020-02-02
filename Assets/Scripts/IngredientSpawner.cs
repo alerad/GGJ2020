@@ -12,6 +12,8 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
     private List<SpawnPoint> spawnPoints;
     public int extraIngredients;
 
+    private List<GameObject> currentIngredients;
+
     class SpawnPoint
     {
         public Transform spawn;
@@ -31,6 +33,7 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
     private void Awake()
     {
         spawnPoints = new List<SpawnPoint>();
+        currentIngredients = new List<GameObject>();
         spawns.ForEach(s => spawnPoints.Add(new SpawnPoint(s)));
     }
 
@@ -38,12 +41,13 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            //SpawnIngredientsForPotion(IngredientMixer.);
+            //SpawnIngredientsForPotion(IngredientMixer.MixPotion());
         }
     }
 
     public void SpawnIngredientsForPotion(Potion pot)
     {
+        currentIngredients.ForEach(Destroy);
         pot.ingredients.ForEach(SpawnIngredientRandom);
         List<Potion.Ingredient> availableIngredients = Potion.GetAllIngredients();
         availableIngredients = availableIngredients.Except(pot.ingredients).ToList();
@@ -55,9 +59,9 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
 
     void SpawnIngredientRandom(Potion.Ingredient ingr)
     {
-        GameObject prefab = null; //Seguir aca
+        GameObject prefab = (GameObject)Resources.Load("prefabs/" + Enum.GetName(typeof(Potion.Ingredient), ingr), typeof(GameObject));
         Transform s = GetRandomSpawn();
-        Instantiate(prefab, s.position, new Quaternion(), this.transform);
+        currentIngredients.Add(Instantiate(prefab, s.position, new Quaternion(), this.transform));
     }
 
     Transform GetRandomSpawn()
