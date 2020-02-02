@@ -34,6 +34,10 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
     {
         spawnPoints = new List<SpawnPoint>();
         currentIngredients = new List<GameObject>();
+        if (spawns == null) {
+            Debug.Log("No spawns set!");
+            return;
+        }
         spawns.ForEach(s => spawnPoints.Add(new SpawnPoint(s)));
     }
 
@@ -45,8 +49,9 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
         }
     }
 
-    public void SpawnIngredientsForPotion(Potion pot)
-    {
+    public void SpawnIngredientsForPotion(Potion pot) {
+        if (spawns == null)
+            return;
         Debug.Log("Spawning ingrediennts");
         //TODO Support multiple potions per patient
         currentIngredients.ForEach(Destroy);

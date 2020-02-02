@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3501537219033114993}
   - component: {fileID: 1705349955351669886}
+  - component: {fileID: -1431921654338168919}
   m_Layer: 0
-  m_Name: Mushroom
+  m_Name: Amanita
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +47,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.10548868, y: 0.14728872, z: 0.11787735}
   m_Center: {x: 0, y: 0.008639216, z: 0}
+--- !u!114 &-1431921654338168919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061060095177958995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6615c0c1cbcc4435b5b4e7eb75a47dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &7354483843645536962
 GameObject:
   m_ObjectHideFlags: 0

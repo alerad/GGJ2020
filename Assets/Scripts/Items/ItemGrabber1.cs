@@ -58,13 +58,14 @@ public class ItemGrabber1 : MonoBehaviour {
          return;
 
       if (!ReferenceEquals(itemToGrab, null)) {
-         itemToGrab.parent = transform;
+         var of = itemToGrab.GetComponent<ObjectFollower>();
+         of.target = transform;
          itemInHand = itemToGrab.gameObject;
       }
    }
 
    private void OnTriggerEnter(Collider other) {
-      if (!hand.IsTracked)
+      if (!isTracked)
          return;
       
       if (other.CompareTag("Ingredient")) {
@@ -80,7 +81,7 @@ public class ItemGrabber1 : MonoBehaviour {
    }
 
    private void OnTriggerExit(Collider other) { 
-      if (!hand.IsTracked)
+      if (!isTracked)
          return;
    
       if (other.CompareTag("Ingredient")) {
@@ -94,5 +95,7 @@ public class ItemGrabber1 : MonoBehaviour {
          cauldron = null;
       }
    }
+
+   private bool isTracked => hand == null || hand.IsTracked;
 
 }

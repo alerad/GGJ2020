@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 1558097263}
   - component: {fileID: 1558097262}
   - component: {fileID: 1558097261}
+  - component: {fileID: 1558097265}
   m_Layer: 0
   m_Name: Amanita
   m_TagString: Ingredient
@@ -508,6 +509,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1558097265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558097260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6615c0c1cbcc4435b5b4e7eb75a47dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &2127423183
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,15 +903,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6599534607779287236, guid: be5964557986c4450acd098a8d148385,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9158955326212767868, guid: be5964557986c4450acd098a8d148385,
         type: 3}
       propertyPath: m_TagString
       value: Cauldron
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599534607779287236, guid: be5964557986c4450acd098a8d148385,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be5964557986c4450acd098a8d148385, type: 3}

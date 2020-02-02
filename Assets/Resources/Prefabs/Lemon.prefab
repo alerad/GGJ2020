@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2659600909985694740}
   - component: {fileID: 1525810454475330038}
+  - component: {fileID: 4415250690140190380}
   m_Layer: 0
   m_Name: Lemon
   m_TagString: Ingredient
@@ -46,6 +47,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36922508, y: 0.26897705, z: 0.23783946}
   m_Center: {x: 0, y: 0.0005919337, z: 0}
+--- !u!114 &4415250690140190380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639287509508377398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6615c0c1cbcc4435b5b4e7eb75a47dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &8245907800955328423
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,11 +159,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2659600909985694740}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 92ba1476aafea4169863911511f89a70,
-        type: 3}
-      propertyPath: m_Name
-      value: limon
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 92ba1476aafea4169863911511f89a70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -218,6 +228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 19.826376
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 92ba1476aafea4169863911511f89a70,
+        type: 3}
+      propertyPath: m_Name
+      value: limon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92ba1476aafea4169863911511f89a70, type: 3}
