@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af8061e6989847fd809d78015ad67cb, type: 3}
-  m_Name: HardProblem
+  m_Name: ArtBlock-H
   m_EditorClassIdentifier: 
   potions:
-  - {fileID: 11400000, guid: 011b8d0ce80ce4972be8bbb89e819b8e, type: 2}
-  - {fileID: 11400000, guid: 83fd49828b11748c39a1ad923f651cda, type: 2}
-  name: HardProb
-  icon: {fileID: 2800000, guid: 5c06354455999f94ea26114e261dde6d, type: 3}
-  credibilityRestoration: 10
-  spawnLocation: 0
+  - {fileID: 11400000, guid: 0d6afc21aff69492eb2600c681300c57, type: 2}
+  problemType: 1
+  name: Artist Block
+  icon: {fileID: 0}
+  credibilityRestoration: 0
+  spawnLocation: 1
   difficulty: 3

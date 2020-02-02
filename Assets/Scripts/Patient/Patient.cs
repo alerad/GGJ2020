@@ -7,26 +7,24 @@ using UnityEngine;
 public class Patient : MonoBehaviour {
     public GameManager.Difficulty difficulty;
     public List<Problem> problems;
-    private int currProblem = 0;
     public float patienceTime;
 
     private void Start() {
         SetPatientData();
     }
-
     
     public void TryCurePlayer(Potion p) {
-        if (IsPotionOkay(p)) {
+        var potOk = IsPotionOkay(p);
+        if (potOk != null) {
             Debug.Log("Potion is ok");
-            if (problems.Count - 1 == currProblem)
+            problems.Remove(potOk);
+            if (problems.Count == 0)
                 GameManager.Instance.OnPatientSucceed();
         }
         else {
             Debug.Log("Potion is wrong");
             GameManager.Instance.OnPatientFail();
         }
-
-        currProblem++;
     }
 
     
@@ -34,22 +32,29 @@ public class Patient : MonoBehaviour {
     /// Checks if all ingredients in the potion match with any of the potions for the current problem
     /// </summary>
     /// <param name="p"></param>
-    /// <returns>True if potion cures patient</returns>
-    private bool IsPotionOkay(Potion p) {
+    /// <returns>Which problem was healed, null if none</returns>
+    private Problem IsPotionOkay(Potion p) {
         if (p == null)
-            return false;
+            return null;
         
-        var potionOk = problems[currProblem]
-            .potions
+        var passedProblem = problems.Where(x => {
+            var potionOk = x
+                .potions
+                .DefaultIfEmpty(null)
+                .FirstOrDefault(
+                    c => c.ingredients.OrderBy(y => (int)y)
+                        .SequenceEqual(p.ingredients
+                            .OrderBy(av => (int)av)
+                        )
+                );
+            return potionOk != null;
+        })
             .DefaultIfEmpty(null)
-            .FirstOrDefault(
-                x => x.ingredients.OrderBy(y => (int)y)
-                    .SequenceEqual(p.ingredients
-                        .OrderBy(av => (int)av)
-                    )
-            );
+            .FirstOrDefault();
+        
+        
 
-        return potionOk != null;
+        return passedProblem;
     }
     
     private void SetPatientData() {
@@ -85,10 +90,10 @@ public class Patient : MonoBehaviour {
     
     private int GetProblemsCountForDifficulty(GameManager.Difficulty d) {
         switch (d) {
-            case GameManager.Difficulty.Easy: return 2;
+            case GameManager.Difficulty.Easy: return 3;
             case GameManager.Difficulty.Normal: return 1;
             case GameManager.Difficulty.Medium: return 1;
-            case GameManager.Difficulty.Hard: return 2;
+            case GameManager.Difficulty.Hard: return 1;
         }
 
         return 2;

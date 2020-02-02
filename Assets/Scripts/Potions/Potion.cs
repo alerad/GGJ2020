@@ -20,7 +20,7 @@ public class Potion : ScriptableObject {
         Ginger,
         Rosemary,
         Coconut,
-        Mushroom,
+        Amanita,
         Lemon,
         Strawberry,
         Scarab
