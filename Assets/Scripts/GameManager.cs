@@ -59,9 +59,13 @@ public class GameManager : Singleton<GameManager> {
     }
 
 
-    private void SpawnIngredientsForPatient() =>
+    private void SpawnIngredientsForPatient()
+    {
+        IngredientSpawner.Instance.ClearRemaining();
         currentPatient.problems.SelectMany(x => x.potions).ToList()
             .ForEach(IngredientSpawner.Instance.SpawnIngredientsForPotion);
+        
+    }
     
     public enum Difficulty {
         Easy,

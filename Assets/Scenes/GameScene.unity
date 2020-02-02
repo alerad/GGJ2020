@@ -1863,8 +1863,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.8, z: 1.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1289792793}
-  m_RootOrder: 3
+  m_Father: {fileID: 1079792556}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050088714
 GameObject:
@@ -1984,9 +1984,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1041490773}
   m_Father: {fileID: 1289792793}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1079792557
 MonoBehaviour:
@@ -2017,17 +2018,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7b6a6456ebc46418bb18510baa511cbc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.31
+      value: -5.45
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b6a6456ebc46418bb18510baa511cbc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5444367
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b6a6456ebc46418bb18510baa511cbc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.33
+      value: 0.311
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b6a6456ebc46418bb18510baa511cbc,
         type: 3}
@@ -3191,6 +3192,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6922795016861575422, guid: 4033057fba92944338ee28944ce2fd03,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4033057fba92944338ee28944ce2fd03, type: 3}
 --- !u!1001 &8180179403882160244
@@ -3259,6 +3265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180179402613345646, guid: c9dca0569005942f3a51f01e6c45b20e,
+        type: 3}
+      propertyPath: extraIngredients
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2564500869789566861, guid: c9dca0569005942f3a51f01e6c45b20e, type: 3}

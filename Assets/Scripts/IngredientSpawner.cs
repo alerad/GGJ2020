@@ -5,7 +5,7 @@ using System.Linq;
 using MonKey.Extensions;
 using UnityEngine;
 
-public class IngredientSpawner : Singleton <IngredientSpawner>
+public class IngredientSpawner : Singleton<IngredientSpawner>
 {
 
     public Transform[] spawns;
@@ -14,6 +14,10 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
 
     private List<GameObject> currentIngredients;
 
+    private int currentExtras = 0;
+
+    private Transform ingrParent;
+    
     class SpawnPoint
     {
         public Transform spawn;
@@ -23,7 +27,7 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
         {
             this.spawn = s;
         }
-        
+
         public bool IsUsed()
         {
             return pot != null;
@@ -35,6 +39,17 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
         spawnPoints = new List<SpawnPoint>();
         currentIngredients = new List<GameObject>();
         spawns.ForEach(s => spawnPoints.Add(new SpawnPoint(s)));
+        ingrParent = new GameObject("ingredient-parent").transform;
+        currentExtras = 0;
+        Invoke("MoreExtras", 120f);
+    }
+    
+    //HORRIBLE, ToDo FIX?????
+
+    void MoreExtras()
+    {
+        extraIngredients++;
+        Invoke("MoreExtras", 120f);
     }
 
     private void Update()
@@ -45,26 +60,40 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
         }
     }
 
+    public void ClearRemaining()
+    {
+        currentExtras = 0;
+        currentIngredients.ForEach(Destroy);
+    }
+
+
     public void SpawnIngredientsForPotion(Potion pot)
     {
-        Debug.Log("Spawning ingrediennts");
-        //TODO Support multiple potions per patient
-        currentIngredients.ForEach(Destroy);
-        pot.ingredients.ForEach(SpawnIngredientRandom);
-        List<Potion.Ingredient> availableIngredients = Potion.GetAllIngredients();
-        availableIngredients = availableIngredients.Except(pot.ingredients).ToList();
-        for (int i = 0; i < extraIngredients; i++)
+        pot.ingredients.ForEach(SpawnIngredientInRandomPos);
+
+        //ToDo sacar esto afuera de aca y solo spawnear la cant. fija definida 1 vez teniendo en cuenta los available current
+        if (currentExtras < extraIngredients)
         {
-            SpawnIngredientRandom(RandomHelper.Get(availableIngredients));
+            
+            List<Potion.Ingredient> availableIngredients = Potion.GetAllIngredients();
+            availableIngredients = availableIngredients.Except(pot.ingredients).ToList();
+            for (int i = 0; i < extraIngredients; i++)
+            {
+                SpawnIngredientInRandomPos(RandomHelper.Get(availableIngredients));
+                currentExtras++;
+            }
         }
     }
 
-    void SpawnIngredientRandom(Potion.Ingredient ingr)
+    void SpawnIngredientInRandomPos(Potion.Ingredient ingr)
     {
-        var ingrName = Enum.GetName(typeof(Potion.Ingredient), ingr);
-        GameObject prefab = (GameObject)Resources.Load("prefabs/" + ingrName, typeof(GameObject));
         Transform s = GetRandomSpawn();
-        var ing = Instantiate(prefab, s.position, new Quaternion(), this.transform);
+        if (s == null)
+            return;
+        
+        var ingrName = Enum.GetName(typeof(Potion.Ingredient), ingr);
+        GameObject prefab = (GameObject) Resources.Load("prefabs/" + ingrName, typeof(GameObject));
+        var ing = Instantiate(prefab, s.position, new Quaternion(), ingrParent);
         ing.name = ingrName;
         currentIngredients.Add(ing);
     }
@@ -72,6 +101,8 @@ public class IngredientSpawner : Singleton <IngredientSpawner>
     Transform GetRandomSpawn()
     {
         List<SpawnPoint> availableSpawns = spawnPoints.Where(s => !s.IsUsed()).ToList();
+        if (availableSpawns == null || availableSpawns.Count == 0)
+            return null;
         return RandomHelper.Get(availableSpawns).spawn;
     }
     
