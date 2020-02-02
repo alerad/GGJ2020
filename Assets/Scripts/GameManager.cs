@@ -35,7 +35,7 @@ public class GameManager : Singleton<GameManager> {
             .Subscribe(x => {
                 var ingsFromProblem = currentPatient.problems.First().potions.SelectMany(b => b.ingredients);
                 var p = IngredientMixer.MixPotion(ingsFromProblem.ToList());
-                currentPatient.TryCurePlayer(p, Problem.SpawnLocation.Intestines);
+                currentPatient.TryCurePlayer(p, currentPatient.problems.First().spawnLocation);
             });
     }
 
