@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2515670652630186140}
   - component: {fileID: 2228990817310751087}
   - component: {fileID: 6359947021789065426}
-  - component: {fileID: 6464765269317689050}
   - component: {fileID: 8783629064067537686}
   m_Layer: 0
   m_Name: Patient
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6464765269317689050
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2823651283601188498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8783629064067537686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +170,11 @@ PrefabInstance:
       propertyPath: p
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 557423995971380794, guid: be51895560cab440197f6cf0777b4c7a,
+        type: 3}
+      propertyPath: p
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be51895560cab440197f6cf0777b4c7a, type: 3}
 --- !u!4 &1274799460205237791 stripped
@@ -260,6 +251,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1362367401500528707, guid: be51895560cab440197f6cf0777b4c7a,
+        type: 3}
+      propertyPath: p
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 557423995971380794, guid: be51895560cab440197f6cf0777b4c7a,
         type: 3}
       propertyPath: p
       value: 2
@@ -434,6 +430,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9aa22d891073496392965539db4934c, type: 2}
+    - target: {fileID: 557423995971380794, guid: be51895560cab440197f6cf0777b4c7a,
+        type: 3}
+      propertyPath: p
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be51895560cab440197f6cf0777b4c7a, type: 3}
 --- !u!4 &5737979222661328692 stripped
@@ -508,6 +509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557423995971380794, guid: be51895560cab440197f6cf0777b4c7a,
+        type: 3}
+      propertyPath: p
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be51895560cab440197f6cf0777b4c7a, type: 3}

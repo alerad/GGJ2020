@@ -12,7 +12,11 @@ public class HealingSpot : MonoBehaviour {
    }
 
    private void OnTriggerEnter(Collider other) {
-      if (other.CompareTag("PlayerHand")) 
+      if (other.CompareTag("PlayerHand") && m.potionInHand != null) {
+         if (m.currentPatient.problems[0].spawnLocation != p)
+            return; //TODO Feedback
+         Debug.Log("Trying to heal!");
          m.currentPatient.TryCurePlayer(m.potionInHand, p);
+      }
    }
 }

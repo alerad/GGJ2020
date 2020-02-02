@@ -31,6 +31,7 @@ public class Cauldron : MonoBehaviour {
     }
 
     public void MixCauldron() {
+        Debug.Log("Mixing cauldron");
         var potion = IngredientMixer.MixPotion(currentIngredients);
 
         if (potion == null) {
@@ -65,9 +66,11 @@ public class Cauldron : MonoBehaviour {
             Debug.Log("Hand in cauldron enter!");
             handsInCauldron++;
         }
-        
-        if (handsInCauldron == 2)
+
+        if (handsInCauldron == 2) {
             GameManager.Instance.potionInHand = currentPotion;
+            Debug.Log("Setting current potion");
+        }
     }
     
     private void OnTriggerExit(Collider other) {

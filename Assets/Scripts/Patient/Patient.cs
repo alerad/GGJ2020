@@ -68,6 +68,9 @@ public class Patient : MonoBehaviour {
         this.patienceTime = patienceTime;
         this.difficulty = difficulty;
         problems = GetProblems();
+        problems.ForEach(x => {
+            Debug.Log(x.name + " " + x.spawnLocation);
+        });
     }
 
     private List<Problem> GetProblems() {
